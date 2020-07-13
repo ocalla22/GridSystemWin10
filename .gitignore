@@ -1,2 +1,3 @@
 #add files that git should ignore here
 .DS_Store
+__pycache__/
