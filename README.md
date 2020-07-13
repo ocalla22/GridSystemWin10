@@ -1,4 +1,2 @@
 # GridSystem
-# Lets Start by Cloneing the Repo with Readme
-# I'm adding a line to the Readme
-Adding another line to the readme, i'll git add the file, commit with message and push the changes straight to master.
+The goal is to create an easy way for a Grid man to create and store grids for a karting final based on the heats for an event
