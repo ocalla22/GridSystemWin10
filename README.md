@@ -1,7 +1,6 @@
 # GridSystem
 The goal is to create an easy way for a Grid man to create and store grids for a karting final based on the heats for an event
 
-
 Running with Python36 currently.
 
 ## Pull Project
@@ -27,6 +26,10 @@ deactivate
 
 pip install pyinstaller==3.6
 
+3. install twine, we'll use that for uploading kartinggrids to pip and making it a module that can be pulled.
+
+pip install twine
+
 ## Package the Standalone Application
 This won't work on MacOS. Pyinstaller, Tkinter and MacOS tend to disagree. For this reason its not so straight forward to make a standalone tkinter app for MacOS. Luckily the target market here is Windows users.
 So the following instructions assume you've downloaded the project on Windows OS.
@@ -39,3 +42,21 @@ you can run find the standalone executable. Or distribute it for windows systems
 
 You can test the application on MacOS by setting up the environment and running the main file.
 ./kartinggrid/hello.py, that should be enough to enhancement, but i strongly encourage packaging on windows only.
+
+
+## Packaging with PIP
+On a high level we need to build a distributable and push it up to a remote pypi (python package index) repository.
+
+First create the distributable
+
+python setup.py bdist_wheel
+
+and upload to pypi, assuming you have a .pypirc folder setup in your home.
+
+[distutils] 
+index-servers=pypi
+[pypi] 
+repository = https://upload.pypi.org/legacy/ 
+username =ocalla22
+
+python -m twine upload dist/*
