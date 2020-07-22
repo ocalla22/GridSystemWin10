@@ -15,7 +15,7 @@ SETUP_ARGS = dict(
     long_description = get_readme(),
     url = "https://github.com/ocalla22/GridSystem",
     author = "Andy OC",
-    author_email = "Not for you",
+    author_email = "andrew.ocallaghan@ucdconnect.ie",
     license = "MIT",
     include_package_data = True,
     classifiers = [
@@ -23,7 +23,6 @@ SETUP_ARGS = dict(
         "Programming Language :: Python :: 3.8",
         ],
     packages = find_packages(),
-    py_modules = ['hello'],
     install_requires = [],
     )
     
