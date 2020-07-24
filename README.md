@@ -41,18 +41,16 @@ As per [The recomended way of using a virtual environment](https://medium.com/@j
 1. Create the virtual environment, activate it and install development requirements.
 ```bash
 python3 -m venv myvenv 
-source myvenv/Scripts/activate.bat
+source myvenv/Scripts/activate
 pip3 install -r requirements.txt
 ```
 
-If you need to deactivate the virtual environment you can use the deactivate command
+If you need to deactivate the virtual environment you can use the deactivate command. Remember to reactivate it again when you come back to the project, using the activate script. No need to install requirements, or create a new venv
+
 ```bash
 deactivate
-```
-Note: remember to reactivate it when needed, navigate back to the project folded ~/projects/GridSystemWin10
-```bash
-cd ~/projects/GridSystemWin10
-source myvenv/Scripts/activate.bat
+
+source myvenv/Scripts/activate
 ```
 
 ## Package the Standalone Application
