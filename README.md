@@ -3,13 +3,13 @@ A Standalone Application that can be run on windows 10, that ingests timing infr
 It should save the gridman from manually computing the grid by hand from timing data and letting him safely store the grid format.
 
 This document will give step by step instructions on how to pull the project, setup a virtual environment and package the application using pyinstaller. 
-This repository purpose to bundle the application to make a standalone .exe file the for GridSystem app with Python3.8 and TKinter.
+This repository purpose to bundle the application to make a standalone .exe file the for GridSystem app with Python3.7 and TKinter.
 
 Currently MacOS is not supported due to complexities with bundling Tcl and TK using PyInstaller, but its unlikely the target market use MacOS. As per the following [issue](https://github.com/pyinstaller/pyinstaller/issues/3753) and other related issues.
 
 ## Assumptions
 This is beginer friendly, but we'll make a few basic assumptions.
-1. python3.8 has been installed and can be ran from CLI with either the Python, or Python3 depending on your setup. (We'll use Python3 to be explicit)
+1. python3.7 has been installed and can be ran from CLI with either the Python, or Python3 depending on your setup. (We'll use Python3 to be explicit)
 2. PIP3 is installed for your Python distribution. Depending on your setup you may call the PIP or PIP3 commands (We'll say PIP3 to be explicit)
 3. Familiar with Git.
 4. Useing Git Bash or WSL rather than Windows CLI.
@@ -41,18 +41,16 @@ As per [The recomended way of using a virtual environment](https://medium.com/@j
 1. Create the virtual environment, activate it and install development requirements.
 ```bash
 python3 -m venv myvenv 
-source myvenv/Scripts/activate.bat
-pip3 install requirements.txt
+source myvenv/Scripts/activate
+pip3 install -r requirements.txt
 ```
 
-If you need to deactivate the virtual environment you can use the deactivate command
+If you need to deactivate the virtual environment you can use the deactivate command. Remember to reactivate it again when you come back to the project, using the activate script. No need to install requirements, or create a new venv
+
 ```bash
 deactivate
-```
-Note: remember to reactivate it when needed, navigate back to the project folded ~/projects/GridSystemWin10
-```bash
-cd ~/projects/GridSystemWin10
-source myvenv/Scripts/activate.bat
+
+source myvenv/Scripts/activate
 ```
 
 ## Package the Standalone Application
@@ -99,8 +97,10 @@ hello world
 
 If you don't have one alreayd you'll need a .pypirc folder in your home directory.
 
+```
 [distutils] 
 index-servers=pypi
 [pypi] 
 repository = https://upload.pypi.org/legacy/ 
 username =ocalla22
+```
