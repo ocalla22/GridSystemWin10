@@ -1,6 +1,6 @@
 # GridSystem
 A Standalone Application that can be run on windows 10, that ingests timing infromation and outputs the correct racing grid formation for an event.
-It should save the gridman from manually computing the grid by hand from timing data.
+It should save the gridman from manually computing the grid by hand from timing data and letting him safely store the grid format.
 
 This document will give step by step instructions on how to pull the project, setup a virtual environment and package the application using pyinstaller. 
 It is assumed that you already have Python3.8 installer and are familiar with Git. When running commands the assumption is that you are using bash either with Git Bash or WSL.
