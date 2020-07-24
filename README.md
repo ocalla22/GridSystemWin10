@@ -5,14 +5,16 @@ It should save the gridman from manually computing the grid by hand from timing 
 Running with Python36 currently.
 
 ## Pull Project
-Clone the project
+```bash
 git clone https://github.com/ocalla22/GridSystem.git
+```
 
 ## Setup a virtual environment
-1. A virtual environment can be used, it'll be reffered to as myvenv. Use pyvenv or virtualenv. We'll use virtualenv for this example
+A virtual environment can be used, it'll be reffered to as myvenv. Use pyvenv or virtualenv. We'll use virtualenv for this example.
 
+```bash
 pip install virtualenv
-virtualenv myvenv
+virtualenv myvenv```
 
 For Windows
 source myvenv/Scripts/activate
@@ -23,11 +25,11 @@ source myvenv/bin/activate
 in both systems we can deactivate the venv using the deactivate command
 deactivate
 
-2. install pyinstaller, we're using pyinstaller3.6 this makes packaging and generating the standalone executable easy.
+install pyinstaller, we're using pyinstaller3.6 this makes packaging and generating the standalone executable easy.
 
 pip install pyinstaller==3.6
 
-3. install twine, we'll use that for uploading kartinggrids to pip and making it a module that can be pulled.
+install twine, we'll use that for uploading kartinggrids to pip and making it a module that can be pulled.
 
 pip install twine
 
