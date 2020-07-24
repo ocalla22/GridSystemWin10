@@ -88,8 +88,12 @@ then this can be pulled using
 ```bash
 pip3 install GridSystemWin10
 python3
->>> from kartinggrids import hello
->>> hello.hello()
+```
+Then from your interpreter session
+
+```python
+from kartinggrids import hello
+hello.hello()
 hello world
 ```
 
