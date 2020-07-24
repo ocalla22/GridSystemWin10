@@ -1,5 +1,6 @@
 # GridSystem
-The goal is to create an easy way for a Grid man to create and store grids for a karting final based on the heats for an event
+A Standalone Application that can be run on windows 10, that ingests timing infromation and outputs the correct racing Grid Formation for an event.
+It should save the gridman from manually computing the grid by hand from timing data.
 
 Running with Python36 currently.
 
@@ -8,7 +9,7 @@ Clone the project
 git clone https://github.com/ocalla22/GridSystem.git
 
 ## Setup a virtual environment
-1. We'll make a virtual environment for the project called myvenv. Use pyvenv or virtualenv. We'll use virtualenv
+1. A virtual environment can be used, it'll be reffered to as myvenv. Use pyvenv or virtualenv. We'll use virtualenv for this example
 
 pip install virtualenv
 virtualenv myvenv
