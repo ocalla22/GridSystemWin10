@@ -1,5 +1,5 @@
 from unittest import TestCase 
-from hello import hello
+from kartinggrid.hello import hello
 
 class TestHello(TestCase):
 
