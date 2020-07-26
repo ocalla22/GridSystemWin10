@@ -22,7 +22,24 @@ The assumption is that the user can input manually curated timing data documents
 ## What's a Virtual Environment
 Virtual environments are a way of creating an isolated space in your system. It helps keep the applications dependencies out of your base system and keeping any system dependencies from interfereing with the application. The "right way" to use a virtual environment was adopted form [here](https://medium.com/@jtpaasch/the-right-way-to-use-virtual-environments-1bc255a0cba7). There are a few tools that can be used for this, but venv will be used as its native to python3.3+.
 
-## Pull Project
+## Quickstart - Build Application the Lazy way
+This script is the easy way to setup the virtual environment, install requirements and build the standalone application. Simply clone the repository, enter it and run the build.sh script.
+
+```bash
+git clone https://github.com/ocalla22/GridSystemWin10.git
+cd GridSystemWin10
+./scripts/build.sh
+```
+
+The dist folder contains the hello.exe file that can be distribute in order to run the standalone application. This will only work for windows systems.
+
+```bash
+./dist/hello/hello.exe
+```
+
+## Long Way - Build application "manually"
+
+### Pull Project
 Navigate to the directory using CLI in which you intend to store the project, we'll assume its something like ~/MyProjects.
 
 Pull/Clone this repository.
@@ -33,7 +50,7 @@ git clone https://github.com/ocalla22/GridSystemWin10.git
 cd GridSystemWin10
 ```
 
-## Setup Virtual Environment
+### Setup Virtual Environment
 As per [The recomended way of using a virtual environment](https://medium.com/@jtpaasch/the-right-way-to-use-virtual-environments-1bc255a0cba7) we enter the GridSystemWin10 directory and create a virtual environment. Run the venv module from Python to create a new virtual environment called myvenv. Then install an dependencies for development listed in requirements.txt 
 - Note : the virtual environment that is created will use the version of python that corresponds the vertion of the Python command used to invoke it. 
 - For example, if the command "Python" points to version A, and "Python3" points to version B and the command executed is Python3 -m venv myvenv, will create a virtual environment named "myvenv" which uses version B of Python. 
@@ -55,14 +72,14 @@ cd ~/projects/GridSystemWin10
 source myvenv/Scripts/activate.bat
 ```
 
-## Package the Standalone Application
+### Package the Standalone Application
 Run pyinstaller on the main application file. This will create the .spec file, and a build and dist folder. Again, source control will ignore these as they are in the .gitignore file.
 
 ```bash
 pyinstaller ./kartinggrids/hello.py
 ```
 
-In the dist folder the hello.exe file that can be distribute in order to run the standalone application. This will only work for windows systems.
+The dist folder the hello.exe file that can be distribute in order to run the standalone application. This will only work for windows systems.
 
 ```bash
 ./dist/hello/hello.exe
