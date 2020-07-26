@@ -8,7 +8,7 @@ requirements=$project_dir/requirements.txt
 main_script=`find $project_dir -iname hello.py`
 
 #defines path to dist folder
-dist_path = $project_dir/dist
+dist_path=$project_dir/dist
 
 #Creates and activates virtual environemt and installs requirements
 python -m venv $project_dir/myvenv
