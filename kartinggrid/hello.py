@@ -1,19 +1,24 @@
 
 import tkinter as tk
-from tkinter import filedialog
+from tkinter.filedialog import askopenfiles
+from tkinter import Button
 
-def UploadAction(event=None):
-    filename = filedialog.askopenfilename()
-    print('Selected:', filename)
+class loadedTimingData:
+    def __init__(self, data=None):
+        self.data = data
 
-def hello():
-    return "Hello World"
+    def set_data(self, data):
+        self.data = data
 
 if __name__ == '__main__':
     import tkinter as tk
     window = tk.Tk()
-    button = tk.Button(window, text='Open', command=UploadAction)
-    button.pack()
-    label = tk.Label(text=hello())
-    label.pack()
+
+    timing_data = TimingData()
+    button_settings = dict(parent=window,
+                           text="click me",
+                           command=lambda : timing_data.set_data(askopenfiles())
+    )
+    btn=Button(upload_button_settings)
+    btn.pack()
     window.mainloop()
