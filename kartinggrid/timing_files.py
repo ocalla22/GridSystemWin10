@@ -1,5 +1,6 @@
 from pandas import read_html
 
+
 class TimingFileInterface:
 
     def __init__(self, file=None):
