@@ -3,22 +3,25 @@ from tkinter import Button
 from kartinggrid.timing_files import BasicTimingFile
 
 
-def log_contents_of(files):
+def log_contents_of(file):
+    for line in file:
+        print(line)
+
+def log_user_selection(files):
     for file in files:
-        for line in file:
-            print(line)
+        log_contents_of(file)
 
-def update_files():
+def user_selects_files():
     files = askopenfiles()
-    log_contents_of(files)
+    log_user_selection(files)
 
-def pack_button(master):
+def create_upload_button(master):
     upload_settings = dict(
         master=master,
         text="add data",
-        command=lambda: update_files()
+        command=user_selects_files
     )
-    Button(**upload_settings).pack()
+    return Button(**upload_settings)
 
 def hello():
     print('Jello World')
@@ -28,7 +31,6 @@ if __name__ == '__main__':
     import tkinter as tk
     window = tk.Tk()
     btf = BasicTimingFile(9)
-    print(btf.data)
-
-    pack_button(window)
+    upload_button = create_upload_button(window)
+    upload_button.pack()
     window.mainloop()
