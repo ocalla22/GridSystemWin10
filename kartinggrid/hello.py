@@ -4,8 +4,8 @@ import kartinggrid.app_log_utils as alu
 
 # Decorating the askopenfilenames function,
 # When called, it operates as normal but additionally the users selection is logged.
-askopenfilenames = alu.log_result(func=askopenfilenames,
-                                  log_func=alu.log_user_selection)
+askopenfilenames = alu._log_result(func=askopenfilenames,
+                                   log_func=alu.log_user_selection)
 
 
 def action_on_files(file_names):
@@ -34,7 +34,7 @@ def hello():
 if __name__ == '__main__':
     import tkinter as tk
 
-    alu.configure_logger()
+    alu.configure_loggers()
     window = tk.Tk()
     upload_button = create_upload_button(window)
     upload_button.pack()

@@ -7,12 +7,16 @@ import tkinter as tk
 
 class TestHello(TestCase):
 
-    def test_create_upload_button(self):
+    def setUp(self):
+        self.master = tk.Tk()
+
+
+    def test_create_upload_buttons_configuration(self):
         #Tests all configuration options except callback.
         #Haven't worked out how to test callback is set.
-        master = tk.Tk()
-        button = create_upload_button(master)
-        self.assertEqual(button.master, master)
+
+        button = create_upload_button(self.master)
+        self.assertEqual(button.master, self.master)
         self.assertEqual(button['text'], "add data")
 
     @patch('kartinggrid.hello.hello', return_value='Heddo World')
