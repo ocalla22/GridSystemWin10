@@ -1,15 +1,17 @@
 from tkinter import Button
-from tkinter.filedialog import askopenfilenames
+import tkinter.filedialog as fd
 import kartinggrid.app_log_utils as alu
 
-# Decorating the askopenfilenames function,
-# When called, it operates as normal but additionally the users selection is logged.
-askopenfilenames = alu._log_result(func=askopenfilenames,
-                                   log_func=alu.log_user_selection)
+
+# Decorating this function; it works as usual with the additional behaviour of logging the return value.
+@alu.log_result_with(alu.log_user_selection)
+def _askopenfilenames():
+    return fd.askopenfilenames()
 
 
 def action_on_files(file_names):
-    print(len(file_names), 'Do stuff with files')
+    #Do stuff with files
+    return len(file_names)
 
 
 def create_upload_button(master):
@@ -21,19 +23,13 @@ def create_upload_button(master):
     upload_settings = dict(
         master=master,
         text="add data",
-        command=lambda: action_on_files(askopenfilenames())
+        command=lambda : action_on_files(_askopenfilenames())
     )
     return Button(**upload_settings)
 
 
-def hello():
-    print('Jello World')
-    return "Hello World"
-
-
 if __name__ == '__main__':
     import tkinter as tk
-
     alu.configure_loggers()
     window = tk.Tk()
     upload_button = create_upload_button(window)

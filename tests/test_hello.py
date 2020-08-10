@@ -1,35 +1,32 @@
-from unittest import TestCase
-import kartinggrid.hello
 import io
+import kartinggrid.hello as h
+import tkinter
+import tkinter.filedialog
+from unittest import TestCase, skip
 from unittest.mock import patch
-from kartinggrid.hello import create_upload_button
-import tkinter as tk
 
 class TestHello(TestCase):
 
     def setUp(self):
-        self.master = tk.Tk()
+        self.master = tkinter.Tk()
 
 
-    def test_create_upload_buttons_configuration(self):
-        #Tests all configuration options except callback.
-        #Haven't worked out how to test callback is set.
-
-        button = create_upload_button(self.master)
+    def test_create_upload_buttons_configuration_except_command(self):
+        button = h.create_upload_button(self.master)
         self.assertEqual(button.master, self.master)
         self.assertEqual(button['text'], "add data")
 
-    @patch('kartinggrid.hello.hello', return_value='Heddo World')
-    def test_hello_further(self, patched_function):
-        self.assertEqual(kartinggrid.hello.hello(), "Heddo World")
-        self.assertTrue(patched_function.called)
+
+    @patch('tkinter.filedialog.askopenfilenames', return_value='Heddo World')
+    def test_button_invokes_action_on_user_selected_files(self, patched_function):
+        button = h.create_upload_button(self.master)
+        self.assertEqual(button.invoke(), len("Heddo World"))
         self.assertEqual(patched_function.call_count, 1)
+        #Test action_on_files is called with mocked parm of user input.
 
-
-    @patch('sys.stdout', new_callable=io.StringIO)
-    def test_yet_another_hello(self, mock_stdout):
-        kartinggrid.hello.hello()
-        self.assertEqual(mock_stdout.getvalue(), 'Jello World\n')
+    def test_action_on_files(self):
+        #test the action and side effects etc.
+        pass
 
 
 if __name__ == "__main__":
