@@ -10,13 +10,13 @@ def configure_loggers():
     user.setLevel(INFO)
 
 def log_user_selection(selection):
-    # prints 'Selected : Hello' to User log
+    '''# prints 'Selected <selection>' to App.User log'''
     getLogger('App.User').info('Selected ' + repr(selection))
 
 
 def _log_result(func, log_func):
     """
-        Used as a decorator for func. func's return value will be logged using log_func.
+    Used as a decorator for func. func's return value will be logged using log_func.
 
     :param func: the function being decorated whose return value will be logged with log_func
     :param log_func: the callable that is used to perform logging
@@ -64,16 +64,3 @@ def log_result_with(log_func):
     return lambda func: _log_result(func, log_func)
 
 
-def my_log(x):
-    print(f'logging - {x} - was returned!')
-
-
-@log_result_with(my_log)
-def greeting(name):
-    '''original documentation'''
-    return f'hello {name}'
-
-
-x = greeting('monty')
-print('at long last,', x)
-print(greeting.__doc__)
