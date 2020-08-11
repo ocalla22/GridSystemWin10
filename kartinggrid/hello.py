@@ -14,24 +14,21 @@ def action_on_files(file_names):
     return len(file_names)
 
 
-def create_upload_button(master):
-    """
+def action_on_user_selected_files():
+    return action_on_files(_askopenfilenames())
 
-    :param master: the Tkinter Widget owning the button
-    :return: Tkinter Button Widget that prompts the user to select files
-    """
-    upload_settings = dict(
-        master=master,
+
+def get_upload_button_settings():
+    return dict(
         text="add data",
-        command=lambda : action_on_files(_askopenfilenames())
+        command=action_on_user_selected_files
     )
-    return Button(**upload_settings)
 
 
 if __name__ == '__main__':
     import tkinter as tk
     alu.configure_loggers()
     window = tk.Tk()
-    upload_button = create_upload_button(window)
+    upload_button = Button(master=window, **get_upload_button_settings())
     upload_button.pack()
     window.mainloop()

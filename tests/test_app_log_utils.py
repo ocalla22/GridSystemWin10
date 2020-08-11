@@ -1,22 +1,21 @@
 import io
 from logging import getLogger, WARNING, INFO
 from kartinggrid.app_log_utils import log_user_selection, configure_loggers, log_result_with
-from kartinggrid.TKinterTestCase import TKinterTestCase
 from unittest import TestCase
 from unittest.mock import patch
 
 
+class TestAppLogUtils(TestCase):
 
-class TestAppLogUtils(TKinterTestCase):
+
     def setUp(self):
-        super().setUp()
         configure_loggers()
-        self.app_logger = getLogger('App')
         self.user = getLogger('App.User')
         self._greeting = lambda name : f'Hello {name}' #just a simple function ot test with
 
+
     def test_root_log_configuration(self):
-        self.assertEqual(self.app_logger.level, WARNING)
+        self.assertEqual(getLogger('App').level, WARNING)
 
 
     def test_user_log_configuration(self):
@@ -55,7 +54,6 @@ class TestAppLogUtils(TKinterTestCase):
 
         func_output = decorated_function('Monty')
         self.assertEqual(mock_stdout.getvalue(), f'{func_output}\n')
-
 
 
 if __name__ == '__main__':
