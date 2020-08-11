@@ -1,34 +1,34 @@
-from tkinter.filedialog import askopenfiles
 from tkinter import Button
-from kartinggrid.timing_files import BasicTimingFile
+import tkinter.filedialog as fd
+import kartinggrid.app_log_utils as alu
 
 
-def log_contents_of(files):
-    for file in files:
-        for line in file:
-            print(line)
+# Decorating this function; it works as usual with the additional behaviour of logging the return value.
+@alu.log_result_with(alu.log_user_selection)
+def _askopenfilenames():
+    return fd.askopenfilenames()
 
-def update_files():
-    files = askopenfiles()
-    log_contents_of(files)
 
-def pack_button(master):
-    upload_settings = dict(
-        master=master,
+def action_on_files(file_names):
+    #Do stuff with files
+    return len(file_names)
+
+
+def action_on_user_selected_files():
+    return action_on_files(_askopenfilenames())
+
+
+def get_upload_button_settings():
+    return dict(
         text="add data",
-        command=lambda: update_files()
+        command=action_on_user_selected_files
     )
-    Button(**upload_settings).pack()
 
-def hello():
-    print('Jello World')
-    return "Hello World"
 
 if __name__ == '__main__':
     import tkinter as tk
+    alu.configure_loggers()
     window = tk.Tk()
-    btf = BasicTimingFile(9)
-    print(btf.data)
-
-    pack_button(window)
+    upload_button = Button(master=window, **get_upload_button_settings())
+    upload_button.pack()
     window.mainloop()
