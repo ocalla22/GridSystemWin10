@@ -6,9 +6,10 @@ if [ ! -d "$project_dir/myvenv" ]; then
     python -m venv $project_dir/myvenv 
 fi
 
-#Activates virtual environment and installs requirements
-. $project_dir/myvenv/Scripts/activate
-pip install -r $project_dir/requirements.txt
+#Activates virtual environment and installs requirements. Hide 'already satisfied' to keep logs clean.
+source $project_dir/myvenv/Scripts/activate
+pip install -r $project_dir/requirements.txt \
+| grep -v 'already satisfied'
 
 #defines path to main script to be packaged.
 main_script=`find $project_dir -iname hello.py`
