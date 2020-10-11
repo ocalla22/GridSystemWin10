@@ -1,4 +1,4 @@
-#Assumes we are somewhere and sets project dir as the root of the repo
+#Assumes we are somewhere in the project and sets project dir as the root of the repo
 project_dir=`git rev-parse --show-toplevel`
 
 #Creates Virtual environment if it does not already exist
@@ -12,7 +12,7 @@ pip install -r $project_dir/requirements.txt \
 | grep -v 'already satisfied'
 
 #defines path to main script to be packaged.
-main_script=`find $project_dir -iname hello.py`
+main_script=`find $project_dir -iname main.py`
 
 #packages the main file and builds dist folder in project directory.
 pyinstaller \
