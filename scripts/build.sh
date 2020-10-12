@@ -3,7 +3,7 @@
 activate_venv=true
 
 print_expected_usage() {
-  printf "Usage: ..."
+  printf "Usage: -a : use this when building app and env in Pycharm"
 }
 
 while getopts 'a' flag; do
