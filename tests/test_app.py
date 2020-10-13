@@ -1,4 +1,4 @@
-import kartinggrid.main as main
+import kartinggrid.app as main
 from unittest import TestCase
 from unittest.mock import patch
 
