@@ -6,4 +6,4 @@ rm -r $project_dir/dist/ \
       $project_dir/build/ 
 
 #Removes .spec file
-rm $project_dir/main.spec
+rm $project_dir/app.spec

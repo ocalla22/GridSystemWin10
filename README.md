@@ -40,10 +40,10 @@ cd GridSystemWin10
 ./scripts/build.sh
 ```
 
-The dist folder contains the main.exe file that can be distribute in order to run the standalone application. This will only work for windows systems.
+The dist folder contains the app.exe file that can be distribute in order to run the standalone application. This will only work for windows systems.
 
 ```bash
-./dist/main/main.exe
+./dist/app/app.exe
 ```
 
 ## Long Way - Manually Execute Build Steps
@@ -84,28 +84,28 @@ source myvenv/Scripts/activate
 ```
 
 ### Package the Standalone Application
-Run pyinstaller on the main application file. 
+Run pyinstaller on the app file. 
 This will create the .spec file, and a build and dist folder. 
 Again, source control will ignore these as they are in the .gitignore file.
 
 ```bash
-pyinstaller ./kartinggrids/main.py
+pyinstaller ./kartinggrids/app.py
 ```
 
-The dist folder the main.exe file that can be distribute in order to run the standalone application.
+The dist folder the app.exe file that can be distribute in order to run the standalone application.
 This will only work for windows systems only.
 
 ```bash
-./dist/main/main.exe
+./dist/app/app.exe
 ```
 
 ## What about Mac OS?
-You can test the application on MacOS by setting up the environment and running the main file.
+You can test the application on MacOS by setting up the environment and running the app file.
 You don't need to run pyinstaller.
 Again this application hasn't been packaged into a standalone application, it has system dependencies.
 User's (non-developers) would need to have python3 installed, and a wizard would have to be made to install if for them.
 ```bash
-python3 ./kartinggrid/main.py
+python3 ./kartinggrid/app.py
 ```
 
 ## Packaging with PIP
@@ -126,8 +126,8 @@ python3
 Then from your interpreter session
 
 ```python
-from kartinggrids import main
-main.hello()
+from kartinggrids import app
+app.hello()
 hello world
 ```
 
