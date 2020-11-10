@@ -4,5 +4,5 @@ dist/
 *.spec
 __pycache__
 .idea
-data/*
+kartingData/data/*
 .ipynb_checkpoints
