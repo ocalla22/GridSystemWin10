@@ -7,7 +7,7 @@ class TestHello(TestCase):
 
     def test_get_upload_button_settings(self):
         expected = dict(
-            text="add data",
+            text="add Data",
             command=main.action_on_user_selected_files
         )
         self.assertDictEqual(main.get_upload_button_settings(), expected)
