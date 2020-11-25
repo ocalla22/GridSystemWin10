@@ -19,7 +19,7 @@ def remove_deleted_rows_and_deleted_column(df:DataFrame):
     deleted_rows = df.index[df['Deleted'] != 'No']
     return (df.drop(labels=deleted_rows).drop(columns='Deleted'))
 
-
+  
 def remove_zeroth_and_first_laps(df:DataFrame):
     '''#Laps 0,1 don't have timing data'''
     laps_0_1_rows = df.index[df['Laps'] < 2]
@@ -39,3 +39,4 @@ def prepare_dataframe(df:DataFrame):
                     .pipe(remove_zeroth_and_first_laps)
                     )
     return prepped_data
+  
